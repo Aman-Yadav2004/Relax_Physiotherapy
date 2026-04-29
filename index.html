@@ -217,14 +217,17 @@
             <div class="form-box">
               <div class="form-title">Book an Appointment</div>
               <div class="form-subtitle">We will confirm shortly</div>
-              <div id="lead-form">
+              <form id="lead-form" action="https://formsubmit.co/relaxphysio453@gmail.com" method="POST">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_subject" value="New appointment request from Relax Physiotherapy" />
                 <div class="form-row">
-                  <div class="form-group"><label>Full Name</label><input type="text" id="f-name" placeholder="Your name"/></div>
-                  <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" id="f-phone" placeholder="+91 98373 01964"/></div>
+                  <div class="form-group"><label>Full Name</label><input type="text" id="f-name" name="name" placeholder="Your name" required /></div>
+                  <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" id="f-phone" name="phone" placeholder="+91 98373 01964" required /></div>
                 </div>
                 <div class="form-group">
                   <label>Condition / Concern</label>
-                  <select id="f-condition">
+                  <select id="f-condition" name="condition" required>
                     <option value="">Select condition...</option>
                     <option>Back / Spine Pain</option>
                     <option>Sports Injury</option>
@@ -235,9 +238,9 @@
                     <option>Other</option>
                   </select>
                 </div>
-                <div class="form-group"><label>Message (optional)</label><textarea id="f-msg" placeholder="Describe your concern..."></textarea></div>
-                <button class="submit-btn" onclick="submitForm()">Send Appointment Request</button>
-              </div>
+                <div class="form-group"><label>Message (optional)</label><textarea id="f-msg" name="message" placeholder="Describe your concern..."></textarea></div>
+                <button class="submit-btn" type="submit">Send Appointment Request</button>
+              </form>
               <div id="form-success">Thank you. We have received your request and will contact you shortly.</div>
             </div>
           </div>
@@ -452,7 +455,7 @@
         stat.textContent = '0';
       });
       requestAnimationFrame(startStatsCounter);
-    }, 1100);
+    }, 3000);
 
     window.addEventListener('load', startStatsCounter);
     window.addEventListener('scroll', startStatsCounter, { passive: true });
@@ -476,20 +479,6 @@
     contactModal.addEventListener('click', (event) => {
       if (event.target === contactModal) hideModal();
     });
-
-    function submitForm() {
-      const name = document.getElementById('f-name').value.trim();
-      const phone = document.getElementById('f-phone').value.trim();
-      const condition = document.getElementById('f-condition').value;
-
-      if (!name || !phone || !condition) {
-        alert('Please fill in your name, phone number, and condition.');
-        return;
-      }
-
-      document.getElementById('lead-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    }
   </script>
 </body>
 </html>
