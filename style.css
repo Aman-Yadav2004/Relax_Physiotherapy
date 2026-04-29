@@ -702,7 +702,10 @@
       .why-grid { grid-template-columns: 1fr 1fr; }
       .testi-grid { grid-template-columns: 1fr; }
       .lead-inner { grid-template-columns: 1fr; }
-      .lead-img-wrap { display: none; }
+      .lead-inner > .reveal-left { order: 1; }
+      .lead-inner > .reveal-right { order: 2; }
+      .lead-img-wrap { display: block; margin-top: 1.5rem; }
+      .lead-img-wrap img { height: 300px; }
       .contact-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .hero-stats { grid-template-columns: 1fr 1fr; }
