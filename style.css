@@ -37,7 +37,7 @@
     .intro-brand {
       position: relative; z-index: 1; display: flex; align-items: center; gap: 1.35rem;
       padding: 1.25rem 1.6rem; color: white;
-      animation: introBrand 3.2s cubic-bezier(.2,.7,.2,1) both;
+      animation: introBrand 1.1s cubic-bezier(.2,.7,.2,1) both;
     }
     .intro-brand img {
       width: clamp(82px, 12vw, 132px); height: clamp(82px, 12vw, 132px);
@@ -199,6 +199,12 @@
     }
     .hero-bg-circle.c1 { width: 600px; height: 600px; top: -150px; right: -100px; }
     .hero-bg-circle.c2 { width: 300px; height: 300px; bottom: -80px; left: 10%; }
+    .hero-bg-circle.c3 { width: 280px; height: 280px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .bubble-bg {
+      position: absolute; border-radius: 50%; opacity: 0.04;
+      background: var(--teal-light); pointer-events: none; z-index: 0;
+    }
+    .bubble-bg.c3 { width: 280px; height: 280px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
     .hero-inner { max-width: 1200px; margin: 0 auto; padding: 5% 5%; display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; width: 100%; }
 
     .hero-badge {
@@ -398,9 +404,27 @@
       color: rgba(11,143,134,0.07); line-height: 1;
     }
     .cond-card:hover { border-color: var(--teal); background: white; transform: translateY(-7px); box-shadow: 0 20px 48px rgba(10,138,122,0.14); }
-    .cond-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--teal-pale); color: var(--teal-dark); border: 1.5px solid var(--teal-mid); display: flex; align-items: center; justify-content: center; font-size: 1.45rem; font-weight: 900; font-family: Arial, Helvetica, sans-serif; flex-shrink: 0; transition: background 0.25s, transform 0.25s; }
-    .cond-card:nth-child(4) .cond-icon { color: var(--teal-dark); text-shadow: 0.45px 0 currentColor, -0.45px 0 currentColor; }
-    .cond-card:hover .cond-icon { background: var(--teal); color: white; transform: scale(1.06); }
+    .cond-media {
+      width: 112px;
+      height: 112px;
+      border-radius: 22px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: linear-gradient(145deg, rgba(11,143,134,0.08), rgba(24,183,171,0.16));
+      border: 1.5px solid var(--teal-mid);
+      box-shadow: 0 12px 28px rgba(10,138,122,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .cond-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .cond-card:hover .cond-media {
+      transform: scale(1.05);
+      box-shadow: 0 16px 34px rgba(10,138,122,0.18);
+    }
     .cond-card h4 { font-size: 1.02rem; font-weight: 900; color: var(--charcoal); margin-bottom: 0.42rem; }
     .cond-card p { color: var(--mid); font-size: 0.88rem; line-height: 1.62; position: relative; z-index: 1; }
     .what-we-treat { font-size: clamp(2.25rem, 4.4vw, 3.45rem); }
@@ -639,18 +663,23 @@
     .modal-whatsapp { color: var(--teal-dark); border-color: var(--teal-mid); }
 
     @keyframes waPulse {
-      0%, 100% { box-shadow: 0 8px 26px rgba(37,211,102,0.45); }
-      50% { box-shadow: 0 8px 40px rgba(37,211,102,0.78); }
+      0%, 100% { box-shadow: 0 8px 26px rgba(0,0,0,0.35); }
+      50% { box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
+    }
+    @keyframes waFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
     }
     #wa-float {
       position: fixed; bottom: 28px; right: 28px; z-index: 9999;
-      width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+      width: 60px; height: 60px; background: rgba(0,0,0,0.3); border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 26px rgba(37,211,102,0.45);
-      transition: transform 0.2s, box-shadow 0.2s; text-decoration: none;
-      animation: waPulse 2.5s ease-in-out infinite;
+      box-shadow: none;
+      transition: transform 0.3s ease; text-decoration: none;
+      animation: waFloat 3s ease-in-out infinite;
     }
-    #wa-float:hover { transform: scale(1.12); }
+    #wa-float:hover { transform: scale(1.12) translateY(-3px); }
+    #wa-float img { width: 75%; height: 75%; object-fit: contain; }
 
     /* ── MOBILE ── */
     @media (max-width: 950px) {
