@@ -727,13 +727,48 @@
       section { padding: 4rem 5%; }
       .cond-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
+      .hero-btns {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-btns a {
+        width: 100%;
+        justify-content: center;
+      }
       .hero-info-row { flex-direction: column; }
       .hero-info-pill { width: 100%; }
       .contact-modal-card { padding: 1.6rem; }
       #wa-float { width: 54px; height: 54px; bottom: 20px; right: 20px; }
-      .footer-inner { grid-template-columns: 1fr; }
+      .footer-inner {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem 1rem;
+      }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
       .footer-logo { align-items: flex-start; }
-      .footer-logo img { width: 56px; height: 56px; }
-      .footer-bottom { margin-top: 1.6rem; }
+      .footer-logo img { width: 52px; height: 52px; }
+      .footer-brand p { display: none; }
+      .footer-links,
+      .footer-contact {
+        gap: 0.45rem;
+      }
+      .footer-links h3,
+      .footer-contact h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.15rem;
+      }
+      .footer-links a,
+      .footer-contact a,
+      .footer-contact p {
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+      .footer-contact p { display: none; }
+      .footer-bottom {
+        margin-top: 1.2rem;
+        padding-top: 1rem;
+        font-size: 0.82rem;
+      }
       .mobile-menu { right: 4%; width: min(300px, 92vw); }
     }
