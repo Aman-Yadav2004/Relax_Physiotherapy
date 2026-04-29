@@ -319,6 +319,18 @@
   </a>
 
   <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    function resetScrollToHero() {
+      window.scrollTo(0, 0);
+    }
+
+    resetScrollToHero();
+    window.addEventListener('load', resetScrollToHero);
+    window.addEventListener('pageshow', resetScrollToHero);
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
