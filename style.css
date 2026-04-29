@@ -600,9 +600,12 @@
     .footer-bottom {
       max-width: 1200px; margin: 2rem auto 0; padding-top: 1.25rem;
       border-top: 1px solid rgba(255,255,255,0.12); display: flex;
-      justify-content: space-between; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 1;
+      justify-content: center; gap: 0.75rem 1.75rem; flex-wrap: wrap; position: relative; z-index: 1;
       color: #9ff1e8; font-weight: 700; font-size: 0.9rem; line-height: 1.6;
+      text-align: center;
     }
+    .footer-credit a { color: #9ff1e8; text-decoration: none; }
+    .footer-credit a:hover { text-decoration: underline; }
     footer a { color: var(--teal-light); text-decoration: none; }
 
     .contact-modal {
@@ -769,6 +772,9 @@
         margin-top: 1.2rem;
         padding-top: 1rem;
         font-size: 0.82rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
       }
       .mobile-menu { right: 4%; width: min(300px, 92vw); }
     }
