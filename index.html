@@ -4,6 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Relax Physiotherapy Centre - Since 1999</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpeg"/>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Merriweather:ital,wght@0,700;0,900;1,400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
@@ -452,15 +453,18 @@
     const contactModal = document.getElementById('contactModal');
     const modalClose = document.getElementById('modalClose');
 
+    function showModal() {
+      contactModal.classList.add('show');
+      contactModal.setAttribute('aria-hidden', 'false');
+    }
+
     function hideModal() {
       contactModal.classList.remove('show');
       contactModal.setAttribute('aria-hidden', 'true');
     }
 
-    setTimeout(() => {
-      contactModal.classList.add('show');
-      contactModal.setAttribute('aria-hidden', 'false');
-    }, 7000);
+    setTimeout(showModal, 30000);
+    setInterval(showModal, 30000);
 
     modalClose.addEventListener('click', hideModal);
     contactModal.addEventListener('click', (event) => {
