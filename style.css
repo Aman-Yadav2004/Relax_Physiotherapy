@@ -564,8 +564,16 @@
       min-height: 58px; padding: 0.9rem 1.2rem; text-decoration: none; color: var(--charcoal);
       font-size: 1rem; font-weight: 900; transition: all 0.25s;
     }
-    .soc-btn:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-3px); box-shadow: 0 6px 18px rgba(10,138,122,0.12); }
-    .soc-icon { color: var(--teal-dark); font-size: 1rem; line-height: 1; }
+    .soc-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(10,138,122,0.12); color: white; border-color: transparent; }
+    .soc-insta:hover {
+      background: linear-gradient(135deg, #f58529 0%, #dd2a7b 48%, #8134af 100%);
+      box-shadow: 0 10px 24px rgba(221, 42, 123, 0.28);
+    }
+    .soc-whatsapp:hover {
+      background: linear-gradient(135deg, #ffffff 0%, #e9f8ee 40%, #25d366 100%);
+      color: #0f5f2c;
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.24);
+    }
     .map-wrap { border-radius: 20px; overflow: hidden; border: 3px solid var(--teal); height: 400px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
     .map-wrap iframe { width:100%; height:100%; border:0; display:block; }
 
@@ -758,6 +766,11 @@
     @media (max-width: 580px) {
       section { padding: 4rem 5%; }
       .cond-grid { grid-template-columns: 1fr; }
+      .cond-card { align-items: center; }
+      .cond-card:nth-child(even) { flex-direction: row-reverse; }
+      .cond-card:nth-child(even)::after { left: 1.1rem; right: auto; }
+      .cond-card:nth-child(odd)::after { right: 1.1rem; left: auto; }
+      .cond-media { width: 88px; height: 88px; border-radius: 18px; }
       .why-grid { grid-template-columns: 1fr; }
       .hero-btns {
         flex-direction: column;
